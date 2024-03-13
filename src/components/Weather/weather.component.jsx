@@ -7,6 +7,11 @@ const refresh = () => {
   window.location.reload();
 };
 
+const celsiusToFahrenheit = (celsius) => {
+  const fahrenheit = (celsius * 9) / 5 + 32;
+  return fahrenheit;
+};
+
 const WeatherCard = ({ weatherData }) => (
   <div className="main">
     <div className="top">
@@ -28,7 +33,9 @@ const WeatherCard = ({ weatherData }) => (
     </div>
 
     <div className="flex">
-      <p className="temp">Temprature: {weatherData.main.temp} &deg;C</p>
+      <p className="temp">
+        Temprature: {celsiusToFahrenheit(weatherData.main.temp)} &deg;F
+      </p>
       <p className="temp">Humidity: {weatherData.main.humidity} %</p>
     </div>
 
